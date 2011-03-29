@@ -1,0 +1,403 @@
+/**
+* clearfix
+* usage:
+    .container elem{float:right}
+    .container:after {@include clearfix();}
+**/
+/**
+* Rounded corners:
+    @rounded($radius: 10px);
+    @rounded-top($radius: 10px);
+    @rounded-top-right($radius: 10px);
+    @rounded-top-left($radius: 10px);
+    @rounded-bottom($radius: 10px);
+    @rounded-bottom-right($radius: 10px);
+    @rounded-bottom-left($radius: 10px);
+**/
+/*
+ * Copyright 2010 The Closure Library Authors. All Rights Reserved.
+ *
+ * Use of this source code is governed by the Apache License, Version 2.0.
+ * See the COPYING file for details.
+ */
+/* Author: slightlyoff@google.com (Alex Russell) */
+/* Author: eae@google.com (Emil A Eklund) */
+/* Imageless button styles. */
+.goog-css3-button {
+  margin: 0 2px;
+  padding: 3px 6px;
+  text-align: center;
+  vertical-align: middle;
+  white-space: nowrap;
+  cursor: default;
+  outline: none;
+  font-family: Arial, sans-serif;
+  color: #000;
+  border: 1px solid #bbb;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  /* TODO(eae): Change this to -webkit-linear-gradient once
+                https://bugs.webkit.org/show_bug.cgi?id=28152 is resolved. */
+  background: -webkit-gradient(linear, 0% 40%, 0% 70%, from(#f9f9f9), to(#e3e3e3));
+  background: -moz-linear-gradient(top, #f9f9f9, #e3e3e3);
+}
+
+/* Styles for different states (hover, active, focused, open, checked). */
+.goog-css3-button-hover {
+  border-color: #939393 !important;
+}
+
+.goog-css3-button-focused {
+  border-color: #444;
+}
+
+.goog-css3-button-active, .goog-css3-button-open {
+  border-color: #444 !important;
+  background: -webkit-gradient(linear, 0% 40%, 0% 70%, from(#e3e3e3), to(#f9f9f9));
+  background: -moz-linear-gradient(top, #e3e3e3, #f9f9f9);
+}
+
+.goog-css3-button-disabled {
+  color: #888;
+}
+
+.goog-css3-button-primary {
+  font-weight: bold;
+}
+
+/*
+ * Pill (collapsed border) styles.
+ */
+.goog-css3-button-collapse-right {
+  margin-right: 0 !important;
+  border-right: 1px solid #bbb;
+  -webkit-border-top-right-radius: 0px;
+  -webkit-border-bottom-right-radius: 0px;
+  -moz-border-radius-topright: 0px;
+  -moz-border-radius-bottomright: 0px;
+}
+
+.goog-css3-button-collapse-left {
+  border-left: 1px solid #f9f9f9;
+  margin-left: 0 !important;
+  -webkit-border-top-left-radius: 0px;
+  -webkit-border-bottom-left-radius: 0px;
+  -moz-border-radius-topleft: 0px;
+  -moz-border-radius-bottomleft: 0px;
+}
+
+/*
+ * Copyright 2009 The Closure Library Authors. All Rights Reserved.
+ *
+ * Use of this source code is governed by the Apache License, Version 2.0.
+ * See the COPYING file for details.
+ */
+/*
+ * Standard styling for goog.ui.Dialog.
+ *
+ * @author ssaviano@google.com (Steven Saviano)
+ * @author attila@google.com (Attila Bodis)
+ */
+.modal-dialog {
+  background: #289289;
+  border: 0px solid #2c2c2c;
+  color: #2c2c2c;
+  padding: 4px;
+  position: absolute;
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+}
+
+.modal-dialog-bg {
+  background: #666;
+  left: 0;
+  position: absolute;
+  top: 0;
+}
+
+.modal-dialog-title {
+  -webkit-border-top-right-radius: 5px;
+  -moz-border-radius-topright: 5px;
+  border-top-right-radius: 5px;
+  -webkit-border-top-left-radius: 5px;
+  -moz-border-radius-topleft: 5px;
+  border-top-left-radius: 5px;
+  background: #f8fae9;
+  color: #2c2c2c;
+  border-bottom: 1px solid #2c2c2c;
+  cursor: pointer;
+  font-size: 120%;
+  font-weight: bold;
+  padding: 8px 15px 8px 8px;
+  position: relative;
+  _zoom: 1;
+  /* Ensures proper width in IE6 RTL. */
+}
+
+.modal-dialog-title-close {
+  /* Client apps may override the URL at which they serve the sprite. */
+  background: #e0edfe url(https://ssl.gstatic.com/editor/editortoolbar.png) no-repeat -528px 0;
+  cursor: default;
+  height: 15px;
+  position: absolute;
+  right: 10px;
+  top: 8px;
+  width: 15px;
+  vertical-align: middle;
+}
+
+.modal-dialog-buttons {
+  -webkit-border-bottom-right-radius: 5px;
+  -moz-border-radius-bottomright: 5px;
+  border-bottom-right-radius: 5px;
+  -webkit-border-bottom-left-radius: 5px;
+  -moz-border-radius-bottomleft: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+.modal-dialog-buttons,
+.modal-dialog-content {
+  background-color: #fff;
+  padding: 8px;
+}
+
+.goog-buttonset-default {
+  font-weight: bold;
+}
+
+a {
+  text-decoration: none;
+  color: #2671a8;
+}
+
+ul, li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.clear {
+  clear: both;
+}
+
+textarea, input[type=text], input[type=email] {
+  padding: 5px;
+  border: none;
+  background-color: #f8fae9;
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+}
+
+.placeheld {
+  color: #666666;
+}
+
+input[type=button], input[type=submit], .button {
+  color: #2c2c2c;
+  border: 1px solid #666666;
+  background-color: #f8fae9;
+  padding: 5px 10px;
+  font-size: 12px;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#eff1e0), to(#d6d8c7));
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-box-shadow: 0 1px 2px #929292;
+  -webkit-box-shadow: 0 1px 2px #929292;
+  box-shadow: 0 1px 2px #929292;
+}
+
+/**
+* clearfix
+* usage:
+    .container elem{float:right}
+    .container:after {@include clearfix();}
+**/
+/**
+* Rounded corners:
+    @rounded($radius: 10px);
+    @rounded-top($radius: 10px);
+    @rounded-top-right($radius: 10px);
+    @rounded-top-left($radius: 10px);
+    @rounded-bottom($radius: 10px);
+    @rounded-bottom-right($radius: 10px);
+    @rounded-bottom-left($radius: 10px);
+**/
+body, html {
+  background-color: #2c2c2c;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Cantarell', arial, sans-serif;
+  -webkit-user-select: none;
+  -webkit-text-size-adjust: none;
+}
+
+#actionbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  width: 100%;
+  height: 50px;
+  background-color: #2c2c2c;
+  border-color: #2c2c2c;
+  border-width: 1px 0;
+  border-style: solid;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#4e4e4e), to(#2c2c2c));
+}
+#actionbar #ab_logo {
+  position: absolute;
+  height: 39px;
+  width: auto;
+  top: 50%;
+  margin: -19px 0 0 10px;
+}
+#actionbar .back #ab_logo {
+  left: 50%;
+  margin-left: -73px;
+}
+#actionbar .ab-button {
+  color: #f8fae9;
+  border: 1px solid #2c2c2c;
+  background-color: #289289;
+  margin: 11px 10px;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#1f8980), to(#067067));
+  -moz-box-shadow: 0 1px 1px #5f5f5f;
+  -webkit-box-shadow: 0 1px 1px #5f5f5f;
+  box-shadow: 0 1px 1px #5f5f5f;
+}
+#actionbar .ab-button.right {
+  float: right;
+}
+#actionbar .ab-button.left {
+  float: left;
+}
+
+#wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  margin: 52px 0 0;
+  padding: 0;
+  width: 100%;
+  /*height:200px; /* reset in js */
+}
+#wrapper #scroller {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+#main {
+  width: 100%;
+  background-color: #2c2c2c;
+  font-size: 16px;
+}
+#main #new_listing {
+  width: 100%;
+}
+#main #new_listing li, #main #new_listing ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+#main #new_listing .form_item {
+  width: 93%;
+  padding: 2%;
+  margin: 2%;
+  background-color: #f8fae9;
+  display: block;
+  font-size: 16px;
+  font-family: 'Cantarell', arial, sans-serif;
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+}
+#main #new_listing .form_item input[type=button] {
+  float: right;
+}
+#main #new_listing .form_item #image {
+  max-height: 100px;
+  width: auto;
+}
+#main #new_listing .form_item label {
+  color: #666666;
+}
+#main #new_listing .form_item:after {
+  content: ".";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+#main #login {
+  text-align: center;
+}
+#main #login form {
+  position: absolute;
+  left: 50%;
+  margin-left: -126px;
+  width: 252px;
+  text-align: right;
+}
+#main #login form input[type=email] {
+  width: 100%;
+}
+#main #login form input[type=submit] {
+  -moz-box-shadow: 0 1px 2px black;
+  -webkit-box-shadow: 0 1px 2px black;
+  box-shadow: 0 1px 2px black;
+}
+#main #login img {
+  width: 252px;
+  height: auto;
+  margin: 0 auto;
+}
+
+/** UI **/
+.dialog {
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  position: absolute;
+  width: 250px;
+  border: 2px solid #289289;
+  background-color: #f8fae9;
+}
+.dialog .body {
+  padding: 10px;
+}
+.dialog .buttons {
+  border-top: 2px solid #2c2c2c;
+  background-color: #289289;
+  padding: 5px 5px 10px;
+}
+.dialog .buttons .button {
+  display: inline;
+  margin-right: 10px;
+}
+.dialog .buttons .button:last {
+  margin-right: 0;
+}
+.dialog.msg, .dialog.wait, .dialog.toast {
+  padding: 10px;
+  background-color: #2c2c2c;
+  color: #f8fae9;
+  opacity: .9;
+}
+.dialog.wait {
+  position: absolute;
+  left: 50%;
+  margin-left: -125px;
+  top: 50px;
+}
+.dialog.toast {
+  position: absolute;
+  text-align: center;
+}
